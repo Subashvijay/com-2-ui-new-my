@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserDetails } from 'src/app/models/user-details';
+import { TweetappService } from '../../service/tweetapp.service';
 import { AuthenticationService } from '../../service/authentication-service.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { AuthenticationService } from '../../service/authentication-service.serv
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor(private router: Router, private auth: AuthenticationService) { }
+  constructor(private router: Router, private tweetServiec: TweetappService) { }
 
   ngOnInit(): void {
     this.createform();
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      if (this.auth.logIn(this.loginForm.get('email').value, this.loginForm.get('password').value)) {
+      if (this.tweetServiec.Login(this.loginForm.get('email').value, this.loginForm.get('password').value)) {
         this.router.navigateByUrl('home');
       }
     }

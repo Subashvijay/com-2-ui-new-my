@@ -9,6 +9,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { TweetComponent } from './components/tweet/tweet.component';
 import { PeoplesComponent } from './components/peoples/peoples.component';
+import { TweetappService } from './service/tweetapp.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,9 +25,10 @@ import { PeoplesComponent } from './components/peoples/peoples.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TweetappService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

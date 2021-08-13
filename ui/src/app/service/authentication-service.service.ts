@@ -14,7 +14,7 @@ export class AuthenticationService {
   }
 
   logIn(email: string, password: string): boolean {
-    this.currentUser = { email, password } as UserDetails;
+    // this.currentUser = { email, password } as UserDetails;
     this.currentUserSubject.next(this.currentUser);
     localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
     return true;
